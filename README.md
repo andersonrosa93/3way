@@ -19,3 +19,8 @@ git status
 ---- adicionar tudo
 
 git add .
+
+git commit -m "comentario"
+
+informa email e nome.
+
