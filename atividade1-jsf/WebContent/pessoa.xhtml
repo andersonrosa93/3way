@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</h:head>
+
+<h:body>
+
+	<div class="jumbotron text-center">
+		<h1><h:outputText value="#{pessoa.nome}" /></h1>
+		<p>Resize this responsive page to see the effect!</p>
+	</div>
+
+	<h:form>
+		<p:dataTable var="p" value="#{pessoa.preenchePessoa()}">
+
+			<p:column headerText="Nome">
+				<h:outputText value="#{p.nome}" />
+			</p:column>
+
+			<p:column headerText="Idade">
+				<h:outputText value="#{p.idade}" />
+			</p:column>
+
+			<p:column headerText="Sexo">
+				<h:outputText value="#{p.sexo}" />
+			</p:column>
+		</p:dataTable>
+
+
+	</h:form>
+</h:body>
+</html>
