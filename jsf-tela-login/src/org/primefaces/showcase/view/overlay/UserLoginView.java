@@ -45,7 +45,9 @@ public class UserLoginView {
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, message);
+        context.getExternalContext().getFlash().setKeepMessages(true);
         PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
         
         try {

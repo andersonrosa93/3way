@@ -9,16 +9,39 @@
 
 <h:body>
 
-		<div align="center" style="margin-top: 50px">
+	<h:form>
 
-				<p:galleria value="#{imagesView.images}" var="image"
-					panelWidth="500" panelHeight="313" showCaption="true"
-					effectSpeed="800">
-					<p:graphicImage name="/imagens/#{image}"
-						alt="Image Description for #{image}" title="#{image}" />
-				</p:galleria>
+		<p:growl id="growl" showDetail="true" life="2000" />
+		<p:messages id="messages" autoUpdate="true" />
+		<div align="center">
+			<h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="5">
+				<h:outputText value="Escolha a Plataforma: " />
+				<p:selectOneButton value="#{selecionarPlataforma.option}">
+					<f:selectItem itemLabel="Xbox One" itemValue="JogoXbox" />
+					<f:selectItem itemLabel="PS4" itemValue="ps4" />
+					<f:selectItem itemLabel="Wii u" itemValue="wii" />
+				</p:selectOneButton>
+			</h:panelGrid>
+
+			<div align="center">
+				<p:commandButton value="Selecionar" update="imagens, growl"
+					icon="ui-icon-check" />
+				<p:spacer />
+			</div>
 
 		</div>
 
+		<div align="center" style="margin-top: 50px">
+
+			<p:galleria id="imagens" value="#{selecionarPlataforma.images}" var="image" panelWidth="500"
+				panelHeight="313" showCaption="true" effectSpeed="800">
+				<p:graphicImage name="/imagens/#{image}"
+					alt="Image Description for #{image}" title="#{image}" />
+			</p:galleria>
+
+		</div>
+
+
+	</h:form>
 </h:body>
 </html>
